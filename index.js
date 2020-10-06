@@ -39,19 +39,23 @@ console.log(fifaData[828]["Win conditions"]); // winner conditions 2014 wcf
 
 /* Task 2: Create a function called  getFinals that takes `data` as an argument and returns an array of objects with only finals data */
 
+//function with parameter/place-holder
 function getFinals(data) {
-    const finalsArray = data.filter((item) => { return item.Stage == "Final"; });
-
+    // simple use of filter method, only storing in finalsArray if item.Stage matches the string "Final"
+    const finalsArray = data.filter(item => item.Stage == "Final");
+    // return the new array created by filter method
     return finalsArray;
 };
 
 /* Task 3: Implement a higher-order function called `getYears` that accepts the callback function `getFinals`,
 and returns an array called `years` containing all of the years in the dataset */
 
-// callBack as a parameter
+// do i keep the years as numbers, or as a key:value pair in an object?
+
+// callBack will hold the value for the finalsArray
 function getYears(callBack) {
     // use map method to take all array elements returned from getFinals (stored as callBack) and only keep the years
-    const years = callBack.map((item) => { return { "Year": item.Year }; });
+    const years = callBack.map (item => {"Year": item.Year});
     // return the array
     return years;
 };
@@ -70,6 +74,8 @@ function getWinners(cb) {
         // use ternary operator to determine which team name is returned as the winner
         return (item["Home Team Goals"] > item["Away Team Goals"]) ? (item["Home Team Name"]) : (item["Away Team Name"]);
     });
+    // used the map method to fill array with winner names, but forgot to return the mapTheWinner array
+    return mapTheWinner;
 };
 // invoke higher-order function
 getWinners(getFinals);
