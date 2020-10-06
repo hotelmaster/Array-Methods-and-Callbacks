@@ -12,6 +12,24 @@ console.log('its working');
 (d) Away Team goals for 2014 world cup final
 (e) Winner of 2014 world cup final */
 
+// actually i needed to access/return/console.log these values, not use an index, the adv arr methods will do that for me
+
+fifaData.forEach( (item) => {
+    if(item.Year == 2014 && item.Stage == "Final") {
+        console.log(item["Home Team Name"]);
+        console.log(item["Away Team Name"]);
+        console.log(item["Home Team Goals"]);
+        console.log(item["Away Team Goals"]);
+        if(item["Home Team Goals"] > item["Away Team Goals"]) {
+            console.log(`Winner of the 2014 World Cup Final: ${item["Home Team Name"]}`);
+        }
+        else if(item["Away Team Goals"] > item["Home Team Goals"]) {
+            console.log(`Winner of the 2014 World Cup Final: ${item["Away Team Name"]}`);
+        }
+    }
+});
+
+// this code is now obsolete...what was i thinking using an index...
 console.log(fifaData[828]["Home Team Name"]); // home team name 2014 wcf
 console.log(fifaData[828]["Away Team Name"]); // away team name 2014 wcf
 console.log(fifaData[828]["Home Team Goals"]); // home team name 2014 wcf
